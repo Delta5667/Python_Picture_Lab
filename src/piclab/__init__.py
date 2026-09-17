@@ -6,8 +6,11 @@ from .transforms import (
     get_pixel,
     mirror_region,
     mirror_vertical,
+    mirror_horizontal,
     set_pixel,
     zero_blue,
+    zero_green,
+    zero_red,
 )
 
 __all__ = [
@@ -17,7 +20,10 @@ __all__ = [
     "get_pixel",
     "set_pixel",
     "zero_blue",
+    "zero_green",
+    "zero_red",
     "mirror_vertical",
+    "mirror_horizontal",
     "mirror_region",
     "copy_into",
     "color_distance",

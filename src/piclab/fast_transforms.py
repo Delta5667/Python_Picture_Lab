@@ -13,6 +13,15 @@ def zero_blue(pixels: np.ndarray) -> np.ndarray:
     result[:, :, 2] = 0
     return result
 
+def zero_green(pixels: np.ndarray) -> np.ndarray:
+    result = pixels.copy()
+    result[:, :, 1] = 0
+    return result
+
+def zero_red(pixels: np.ndarray) -> np.ndarray:
+    result = pixels.copy()
+    result[:, :, 0] = 0
+    return result
 
 def mirror_vertical(pixels: np.ndarray) -> np.ndarray:
     """Copy the left half onto its mirror position on the right (matches
@@ -23,6 +32,14 @@ def mirror_vertical(pixels: np.ndarray) -> np.ndarray:
     result[:, width - half :, :] = pixels[:, :half, :][:, ::-1, :]
     return result
 
+def mirror_horizontal(pixels: np.ndarray) -> np.ndarray:
+    """Copy the top half onto its mirror position on the bottom (matches
+    transforms.mirror_horizontal: the top half itself is left untouched)."""
+    result = pixels.copy()
+    height = result.shape[0]
+    half = height // 2
+    result[height - half :, :, :] = pixels[:half, :, :][::-1, :, :]
+    return result
 
 def edge_detection(pixels: np.ndarray, edge_dist: float) -> np.ndarray:
     result = pixels.copy()
